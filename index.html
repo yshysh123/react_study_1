@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="src/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/browser.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/babel">
+			let H1 = React.createClass({
+				click:function(){
+					var num = this.state.num;
+					num++;
+					this.setState({
+						num:num
+					})
+				},
+				render:function(){
+					return (
+						<div>
+							<button
+								onClick={this.click}
+							>
+								点击加一
+							</button>
+							<h1 className="active">我是一个人</h1>
+							<p>{this.state.num}</p>
+							<input type="text" />
+						</div>
+					)
+				},
+				getInitialState:function(){
+					return{
+						num:0
+					}
+				}
+			})
+			ReactDOM.render(
+				<H1 />,
+				document.getElementById('app')
+			)
+		</script>
+	</body>
+</html>
